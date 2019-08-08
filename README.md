@@ -1,7 +1,10 @@
 # logmonitor
 
-## 架构
-fnotify 监控文件变化
-monitor
-    管理文件变化
-    发送对应变化给相关责任人
+
+support features：
+
+    monitor dir and file
+    message filter
+    ratelimiter by keywords
+    intercepts
+    sender to targets by wxwork
