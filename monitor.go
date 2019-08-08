@@ -112,14 +112,14 @@ func (m *Monitor) setMonitorName(path, name string) {
 	m.monitoredNames[path] = append(m.monitoredNames[path], name)
 }
 
-func NewMonitor() *Monitor {
+func NewMonitor() (*Monitor, error) {
 	w, err := watcher.NewLogWatcher()
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	return &Monitor{
 		watcher:        w,
 		monitorFiles:   make(map[string]*MonitorFile),
 		monitoredNames: make(map[string][]string),
-	}
+	}, nil
 }
